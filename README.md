@@ -187,7 +187,6 @@ animate();
 </body>
 </html>
 <img src="myphoto.jpg" alt="My Photo" width="300"><img width="698" height="569" alt="Picsart_25-09-13_22-02-51-237" src="https://github.com/user-attachments/assets/672b64e7-d103-4cab-a253-b1a982a541bd" />
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
