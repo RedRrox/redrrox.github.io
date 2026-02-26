@@ -109,7 +109,19 @@ canvas{
 
 <section class="fade">
     <h1>About Me</h1>
-    <p>I build cool websites using GitHub Pages 🚀</p>
+    <p>🎮 Welcome to My Gaming Universe 🎥
+
+This isn’t just a website — this is my battlefield.
+I’m a passionate gamer and content creator on a mission to level up every single day. From intense clutch moments to funny fails, from grinding ranks to exploring new worlds — everything you see here is real, raw, and full of energy.
+
+Gaming is not just a hobby for me, it’s a lifestyle. Every match is a challenge. Every stream is a new story. Every upload is a step closer to greatness. I create high-quality gameplay videos, exciting live streams, walkthroughs, tips & tricks, and entertaining content that keeps the vibe alive.
+
+Here, we don’t just play games — we dominate them.
+We don’t just upload videos — we create moments.
+
+If you love epic plays, savage comebacks, pro-level skills, and non-stop entertainment, then you’re in the right place. Join the journey, be part of the squad, and let’s build something legendary together.
+
+🚀 Game On. Stay Strong. Keep Grinding.</p>
 </section>
 
 <section class="fade">
