@@ -124,9 +124,6 @@ If you love epic plays, savage comebacks, pro-level skills, and non-stop enterta
 🚀 Game On. Stay Strong. Keep Grinding.</p>
 </section>
 
-<section class="fade">
-    <h1>Contact</h1>
-    <p>Email: crazygaming4575@gmail.com</p>
 </section>
 
 <script>
