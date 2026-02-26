@@ -103,7 +103,7 @@ canvas{
 
 <section>
     <h1>Hi, I'm RedRrox 😎</h1>
-    <div class="typing">Welcome to my Ultimate Animated Website 🔥</div>
+    <div class="typing">Welcome to my Website 🔥</div>
     <a href="#" class="btn">Explore More</a>
 </section>
 
@@ -126,7 +126,7 @@ If you love epic plays, savage comebacks, pro-level skills, and non-stop enterta
 
 <section class="fade">
     <h1>Contact</h1>
-    <p>Email: your@email.com</p>
+    <p>Email: crazygaming4575@gmail.com</p>
 </section>
 
 <script>
