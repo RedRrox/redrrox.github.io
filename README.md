@@ -295,14 +295,8 @@ canvas{
 <section>
     <h1>Hi, I'm Redrrox 😎</h1>
     <div class="typing">Welcome to my Website 🔥</div>
-    <a href="https://github.com/redrrox" class="btn">My GitHub</a>
     <a href="#contact" class="btn">Contact Me</a>
-    <a href="https://www.youtube.com/" class="btn">Favorite Channel</a>
-</section>
-
-<section class="fade">
-    <h1>About Me</h1>
-    <p>I build cool websites using GitHub Pages 🚀</p>
+    <a href="http://www.youtube.com/@redrrox/" class="btn">My Channel</a>
 </section>
 
 <section id="contact" class="fade">
