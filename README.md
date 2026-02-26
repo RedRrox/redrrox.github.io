@@ -2,96 +2,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Cool Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Website</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:'Poppins', sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
 
-        body{
-            background: linear-gradient(135deg,#1e3c72,#2a5298);
-            color:white;
-            text-align:center;
-        }
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #ff512f, #dd2476);
+    background-size:400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color:white;
+    text-align:center;
+}
 
-        nav{
-            background: rgba(0,0,0,0.3);
-            padding:15px;
-        }
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:0 15px;
-            font-weight:600;
-        }
+.container{
+    animation: fadeIn 2s ease-in-out;
+}
 
-        nav a:hover{
-            color:yellow;
-        }
+@keyframes fadeIn {
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
 
-        .hero{
-            padding:100px 20px;
-        }
+h1{
+    font-size:50px;
+    animation: slideIn 2s ease-in-out;
+}
 
-        .hero h1{
-            font-size:50px;
-        }
+@keyframes slideIn{
+    from{letter-spacing:20px; opacity:0;}
+    to{letter-spacing:2px; opacity:1;}
+}
 
-        .hero p{
-            margin-top:20px;
-            font-size:20px;
-        }
+p{
+    margin-top:20px;
+    font-size:20px;
+}
 
-        .btn{
-            display:inline-block;
-            margin-top:30px;
-            padding:12px 25px;
-            background:yellow;
-            color:black;
-            border-radius:30px;
-            text-decoration:none;
-            font-weight:600;
-            transition:0.3s;
-        }
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 30px;
+    background:white;
+    color:black;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+}
 
-        .btn:hover{
-            background:white;
-        }
-
-        footer{
-            margin-top:80px;
-            padding:20px;
-            background:rgba(0,0,0,0.3);
-        }
-    </style>
+.btn:hover{
+    background:black;
+    color:white;
+    transform:scale(1.1);
+}
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-
-    <section class="hero">
-        <h1>Hi, I'm Crazy 😎</h1>
-        <p>Welcome to my awesome website built with GitHub Pages!</p>
-        <a href="#" class="btn">Contact Me</a>
-    </section>
-
-    <footer>
-        <p>© 2026 Crazy | All Rights Reserved</p>
-    </footer>
+<div class="container">
+    <h1>Hi, I'm Crazy 😎</h1>
+    <p>This website has cool animations 🔥</p>
+    <a href="#" class="btn">Explore</a>
+</div>
 
 </body>
 </html>
