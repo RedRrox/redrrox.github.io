@@ -294,7 +294,7 @@ canvas{
 
 <section>
     <h1>Hi, I'm Redrrox 😎</h1>
-    <div class="typing">Welcome to my Ultimate Animated Website 🔥</div>
+    <div class="typing">Welcome to my Website 🔥</div>
     <a href="https://github.com/redrrox" class="btn">My GitHub</a>
     <a href="#contact" class="btn">Contact Me</a>
     <a href="https://www.youtube.com/" class="btn">Favorite Channel</a>
@@ -307,7 +307,7 @@ canvas{
 
 <section id="contact" class="fade">
     <h1>Contact</h1>
-    <p>Email: redrrox@example.com</p>
+    <p>Email: crazygaming4575@gmail.com</p>
 </section>
 
 <script>
