@@ -362,3 +362,6 @@ animate();
 
 </body>
 </html>
+<button onclick="document.body.classList.toggle('dark')">
+Toggle Mode
+</button>
