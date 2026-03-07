@@ -353,7 +353,9 @@ function animate(){
     }
     requestAnimationFrame(animate);
 }
-
+h1{
+text-shadow:0 0 10px cyan,0 0 20px cyan;
+}
 init();
 animate();
 </script>
