@@ -4,22 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedRrox Portfolio</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --bg-gradient: linear-gradient(-45deg, #1e3c72, #2a5298, #ff512f, #dd2476);
+            --text-color: white;
+            --btn-bg: white;
+            --btn-text: black;
+            --glow: cyan;
+        }
+
+        /* Dark Mode Colors */
+        [data-theme="dark"] {
+            --bg-gradient: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+            --text-color: #e0e0e0;
+            --btn-bg: #444;
+            --btn-text: white;
+            --glow: #ff00ff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            transition: 0.5s ease;
         }
 
         body {
-            background: linear-gradient(-45deg, #1e3c72, #2a5298, #ff512f, #dd2476);
+            min-height: 100vh;
+            background: var(--bg-gradient);
             background-size: 400% 400%;
             animation: gradientBG 12s ease infinite;
-            color: white;
+            color: var(--text-color);
             text-align: center;
             overflow-x: hidden;
         }
@@ -31,14 +49,14 @@
         }
 
         section {
-            padding: 80px 20px;
+            padding: 100px 20px;
             max-width: 800px;
             margin: 0 auto;
         }
 
         h1 {
             font-size: 45px;
-            text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+            text-shadow: 0 0 10px var(--glow), 0 0 20px var(--glow);
             margin-bottom: 20px;
         }
 
@@ -51,7 +69,6 @@
         .fade {
             opacity: 0;
             transform: translateY(30px);
-            transition: 1s ease-out;
         }
 
         .fade.show {
@@ -63,75 +80,56 @@
             display: inline-block;
             margin: 15px 10px;
             padding: 12px 30px;
-            background: white;
-            color: black;
+            background: var(--btn-bg);
+            color: var(--btn-text);
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.4s;
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            background: black;
-            color: white;
             transform: scale(1.1) rotate(3deg);
+            background: var(--btn-text);
+            color: var(--btn-bg);
         }
 
-        /* --- Sunlight Glow Button --- */
-        .sunlight-btn {
+        /* --- Theme Toggle Button (Top Right) --- */
+        .theme-toggle {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #ffdb58; /* Sunlight Yellow */
-            color: #333;
-            border-radius: 50%;
+            top: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            background: #ffdb58;
             border: none;
-            font-size: 28px;
+            border-radius: 50%;
+            font-size: 24px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 15px rgba(255, 219, 88, 0.7);
-            animation: sunGlow 3s infinite alternate;
-            transition: 0.4s;
-            z-index: 1000; /* Always on top */
+            box-shadow: 0 0 15px rgba(255, 219, 88, 0.6);
+            z-index: 1000;
+            animation: sunPulse 3s infinite alternate;
         }
 
-        @keyframes sunGlow {
-            0% { box-shadow: 0 0 15px rgba(255, 219, 88, 0.7); transform: scale(1); }
-            100% { box-shadow: 0 0 30px rgba(255, 219, 88, 0.9), 0 0 50px rgba(255, 219, 88, 0.5); transform: scale(1.05); }
+        [data-theme="dark"] .theme-toggle {
+            background: #bdc3c7;
+            box-shadow: 0 0 15px rgba(189, 195, 199, 0.4);
         }
 
-        .sunlight-btn:hover {
-            background: #ffea00; /* Brighter Yellow on hover */
-            transform: scale(1.2) rotate(15deg);
-            box-shadow: 0 0 40px rgba(255, 234, 0, 1), 0 0 70px rgba(255, 234, 0, 0.7);
+        @keyframes sunPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
 
-        p {
-            line-height: 1.6;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-
-        /* --- Mobile Optimization --- */
         @media (max-width: 600px) {
             h1 { font-size: 32px; }
-            .static-text { font-size: 18px; }
-            section { padding: 50px 15px; }
-            .btn { padding: 10px 20px; font-size: 14px; margin: 10px 5px; }
-            .sunlight-btn { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
+            .theme-toggle { width: 45px; height: 45px; top: 15px; right: 15px; font-size: 20px; }
+            section { padding: 60px 15px; }
         }
     </style>
 </head>
@@ -140,7 +138,7 @@
 
     <canvas id="particles"></canvas>
 
-    <button class="sunlight-btn" title="Feel the Sunlight!">☀️</button>
+    <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Switch Theme">☀️</button>
 
     <section>
         <h1>Hi, I'm RedRrox 😎</h1>
@@ -152,7 +150,7 @@
     <section class="fade">
         <h1>About Me</h1>
         <p>🎮 Welcome to My Gaming Universe 🎥<br><br>
-        This isn’t just a website — this is my battlefield. I’m a passionate gamer and content creator on a mission to level up every single day. Gaming is not just a hobby for me, it’s a lifestyle. I create high-quality gameplay videos, exciting live streams, walkthroughs, and tips & tricks.</p>
+        This isn’t just a website — this is my battlefield. I’m a passionate gamer and content creator on a mission to level up every single day.</p>
     </section>
 
     <section id="contact" class="fade">
@@ -161,42 +159,53 @@
     </section>
 
     <script>
-        /* Scroll Animation Logic */
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById("themeBtn");
+            
+            if (body.getAttribute("data-theme") === "dark") {
+                body.removeAttribute("data-theme");
+                btn.innerText = "☀️";
+                btn.style.background = "#ffdb58";
+            } else {
+                body.setAttribute("data-theme", "dark");
+                btn.innerText = "🌙";
+                btn.style.background = "#bdc3c7";
+            }
+        }
+
+        /* Scroll Animation */
         window.addEventListener("scroll", function() {
             document.querySelectorAll(".fade").forEach(function(el) {
-                var position = el.getBoundingClientRect().top;
-                var screenPosition = window.innerHeight / 1.3;
-                if (position < screenPosition) {
+                if (el.getBoundingClientRect().top < window.innerHeight / 1.3) {
                     el.classList.add("show");
                 }
             });
         });
+        window.dispatchEvent(new Event('scroll'));
 
-        /* Particle Animation Logic */
+        /* Particle Logic */
         const canvas = document.getElementById("particles");
         const ctx = canvas.getContext("2d");
         
-        function resizeCanvas() {
+        function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        window.addEventListener('resize', resize);
+        resize();
 
         let particlesArray = [];
-
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
+                this.size = Math.random() * 2 + 1;
                 this.speedX = Math.random() * 1 - 0.5;
                 this.speedY = Math.random() * 1 - 0.5;
             }
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
+                this.x += this.speedX; this.y += this.speedY;
                 if (this.x > canvas.width) this.x = 0;
                 if (this.x < 0) this.x = canvas.width;
                 if (this.y > canvas.height) this.y = 0;
@@ -204,31 +213,18 @@
             }
             draw() {
                 ctx.fillStyle = "white";
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
             }
         }
-
-        function init() {
-            particlesArray = [];
-            for (let i = 0; i < 80; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-
+        function init() { particlesArray = []; for (let i = 0; i < 80; i++) { particlesArray.push(new Particle()); } }
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
+                particlesArray[i].update(); particlesArray[i].draw();
             }
             requestAnimationFrame(animate);
         }
-
-        init();
-        animate();
+        init(); animate();
     </script>
-
 </body>
 </html>
