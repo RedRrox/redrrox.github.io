@@ -69,12 +69,47 @@
             text-decoration: none;
             font-weight: 600;
             transition: 0.4s;
+            position: relative;
+            z-index: 1;
         }
 
         .btn:hover {
             background: black;
             color: white;
             transform: scale(1.1) rotate(3deg);
+        }
+
+        /* --- Sunlight Glow Button --- */
+        .sunlight-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #ffdb58; /* Sunlight Yellow */
+            color: #333;
+            border-radius: 50%;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(255, 219, 88, 0.7);
+            animation: sunGlow 3s infinite alternate;
+            transition: 0.4s;
+            z-index: 1000; /* Always on top */
+        }
+
+        @keyframes sunGlow {
+            0% { box-shadow: 0 0 15px rgba(255, 219, 88, 0.7); transform: scale(1); }
+            100% { box-shadow: 0 0 30px rgba(255, 219, 88, 0.9), 0 0 50px rgba(255, 219, 88, 0.5); transform: scale(1.05); }
+        }
+
+        .sunlight-btn:hover {
+            background: #ffea00; /* Brighter Yellow on hover */
+            transform: scale(1.2) rotate(15deg);
+            box-shadow: 0 0 40px rgba(255, 234, 0, 1), 0 0 70px rgba(255, 234, 0, 0.7);
         }
 
         canvas {
@@ -95,7 +130,8 @@
             h1 { font-size: 32px; }
             .static-text { font-size: 18px; }
             section { padding: 50px 15px; }
-            .btn { padding: 10px 20px; font-size: 14px; }
+            .btn { padding: 10px 20px; font-size: 14px; margin: 10px 5px; }
+            .sunlight-btn { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -103,6 +139,8 @@
 <body>
 
     <canvas id="particles"></canvas>
+
+    <button class="sunlight-btn" title="Feel the Sunlight!">☀️</button>
 
     <section>
         <h1>Hi, I'm RedRrox 😎</h1>
